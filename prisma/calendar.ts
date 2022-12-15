@@ -1,0 +1,11 @@
+import prisma from '.';
+
+
+export async function getDate(date: Date) {
+    try {
+        const day = await prisma.calendar.findUnique({ where: { date }})
+        return { day }
+    } catch (error) {
+        return {error}
+    }
+}
