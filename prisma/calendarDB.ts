@@ -1,5 +1,5 @@
 import prisma from '.';
-import { Task } from './types'
+
 
 export async function getDate(date: Date) {
     try {
@@ -10,11 +10,3 @@ export async function getDate(date: Date) {
     }
 }
 
-export async function addTask(Task: any) {
-    try {
-        const task = await prisma.tasks.create({data: Task})
-        return { task }
-    } catch (error) {
-        return {error}
-    }
-}

@@ -17,8 +17,9 @@ model Calendar {
 }
 
 model Tasks {
+  id Int @id @default(autoincrement())
   calendar Calendar @relation(fields:[date], references: [date])
   date DateTime
-  task  String  @id
+  task  String
   isDone Boolean @default(false)
 }
