@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { data } from "../data"
-
+import TaskList from "./TaskList";
 interface Day {
     day: {
         date: Date;
@@ -57,16 +57,11 @@ export default function TaskPage() {
 
 function Day({ day }: Day) {
     const {date, completionPercentage, taskList} = day || {};
-    console.log(taskList)
     return (
         <div>
             <h2>{getDay(date)}</h2>
             <div>
-                {taskList.map((t) => 
-                    <div className="flex flex-row gap-2">
-                        <input type="checkbox"/> <ul>{t.task}</ul> <p>{String(t.isDone)}</p>
-                    </div>
-                )}
+                <TaskList taskList={taskList} />
             </div>
         </div>
     )
